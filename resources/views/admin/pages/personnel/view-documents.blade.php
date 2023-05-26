@@ -84,16 +84,16 @@
                                                                         <label class="form-label">Document Type</label>
                                                                         <select class="form-select" name="document_type" required>
                                                                             <option>-- Select Document Type --</option>
-                                                                            <option value="PDS">Personal Data Sheet</option>
-                                                                            <option value="Diploma">Diploma/TOR</option>
-                                                                            <option value="PFT">Physical Fitness Test</option>
+                                                                            <option value="Personal Data Sheet">Personal Data Sheet</option>
+                                                                            <option value="Diploma/TOR">Diploma/TOR</option>
+                                                                            <option value="Physical Fitness Test">Physical Fitness Test</option>
                                                                             <option value="Trainings">Trainings</option>
-                                                                            <option value="ST">Specialized Trainings</option>
-                                                                            <option value="Reassignments">SALN</option>
-                                                                            <option value="Eligibility">KSS</option>
-                                                                            <option value="SALN">PER</option>
-                                                                            <option value="KSS">Reassignments</option>
-                                                                            <option value="PER">Eligibility</option>
+                                                                            <option value="Specialized Trainings">Specialized Trainings</option>
+                                                                            <option value="SALN">SALN</option>
+                                                                            <option value="KSS">KSS</option>
+                                                                            <option value="PER">PER</option>
+                                                                            <option value="Reassignments">Reassignments</option>
+                                                                            <option value="Eligibility">Eligibility</option>
                                                                             <!-- Add more options as needed -->
                                                                         </select>
                                                                     </div>

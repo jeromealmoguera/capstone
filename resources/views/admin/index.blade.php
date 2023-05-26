@@ -44,8 +44,8 @@
                                             <line x1="64" y1="46" x2="66" y2="46" fill="none" stroke="#c4cefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                         </svg>
                                     </div>
-                                    <div> <span class="title fw-bold fs-17px">Users</span> <span class="fw-medium">5</span></div>
-                                    <a class="fw-medium" href="#">View Users</a>
+                                    <div> <span class="title fw-bold fs-17px">Users</span> <span class="fw-medium"></span></div>
+                                    <a class="fw-medium" href="{{ route('user.lists') }}">View Users</a>
                                 </div><!-- .preview-icon-box -->
                             </li><!-- .col -->
                             <li class="col-lg-3 col-sm-6 col-12">
@@ -70,8 +70,8 @@
                                             <line x1="64" y1="46" x2="66" y2="46" fill="none" stroke="#c4cefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                         </svg>
                                     </div>
-                                    <div> <span class="title fw-bold fs-17px">Personnel</span> <span class="fw-medium">3</span></div>
-                                    <a class="fw-medium" href="#">View Personnel</a>
+                                    <div> <span class="title fw-bold fs-17px">Personnel</span> <span class="fw-medium"></span></div>
+                                    <a class="fw-medium" href="{{ route('personnel-list') }}">View Personnel</a>
                                 </div><!-- .preview-icon-box -->
                             </li><!-- .col -->
                             <li class="col-lg-3 col-sm-6 col-12">

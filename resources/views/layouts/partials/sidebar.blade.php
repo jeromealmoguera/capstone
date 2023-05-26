@@ -28,61 +28,72 @@
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Home</h6>
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="{{ route('dashboard') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
-                            <span class="nk-menu-text">Dashboard</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                    @if(Auth::user()->role == 'admin'): ?>
+                        <li class="nk-menu-item ">
+                            <a href="{{ route('admin.dashboard') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
+                                <span class="nk-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="nk-menu-item ">
+                            <a href="{{ route('dashboard') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
+                                <span class="nk-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                    @endif
+
+
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Menu</h6>
                     </li><!-- .nk-menu-heading -->
-
-
                     @hasrole('admin')
-                    <li class="nk-menu-item">
-                        <a href="{{ route('personnel-list') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-user-list-fill"></em></span>
-                            <span class="nk-menu-text">Personnel List</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
 
-                    <li class="nk-menu-item">
-                        <a href="{{ route('user.lists') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-account-setting-fill"></em></span>
-                            <span class="nk-menu-text">Account Manager</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                        <li class="nk-menu-item">
+                            <a href="{{ route('personnel-list') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-user-list-fill"></em></span>
+                                <span class="nk-menu-text">Personnel List</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
 
-                    <li class="nk-menu-item">
-                        <a href="{{ route('roles.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-policy-fill"></em></span>
-                            <span class="nk-menu-text">Roles</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
 
-                    <li class="nk-menu-item">
-                        <a href="{{ route('permissions.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-note-add-fill-c"></em></span>
-                            <span class="nk-menu-text">Permissions</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                        <li class="nk-menu-item">
+                            <a href="{{ route('user.lists') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-account-setting-fill"></em></span>
+                                <span class="nk-menu-text">Account Manager</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
+
+                        <li class="nk-menu-item">
+                            <a href="{{ route('roles.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-policy-fill"></em></span>
+                                <span class="nk-menu-text">Roles</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
+
+                        <li class="nk-menu-item">
+                            <a href="{{ route('permissions.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-note-add-fill-c"></em></span>
+                                <span class="nk-menu-text">Permissions</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
 
                     @else
 
-                    <li class="nk-menu-item">
-                        <a href="#" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-user-fill-c"></em></span>
-                            <span class="nk-menu-text">My Profile</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                        <li class="nk-menu-item">
+                            <a href="{{ route('view.my-profile') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-user-fill-c"></em></span>
+                                <span class="nk-menu-text">My Profile</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
 
-                    <li class="nk-menu-item">
-                        <a href="#" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-files-fill"></em></span>
-                            <span class="nk-menu-text">Documents</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                        <li class="nk-menu-item">
+                            <a href="#" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-files-fill"></em></span>
+                                <span class="nk-menu-text">Documents</span>
+                            </a>
+                        </li><!-- .nk-menu-item -->
 
                     @endhasrole
 

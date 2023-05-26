@@ -25,7 +25,7 @@
                                 <div class="user-info d-none d-xl-block">
                                     <div class="user-status user-status-administrator">{{ Auth::user()->roles->pluck('name')->implode(', ') }}
                                     </div>
-                                    <div class="user-name dropdown-indicator">{{ Auth::user()->username }}</div>
+                                    <div class="user-name dropdown-indicator">{{ Auth::user()->name }}</div>
                                 </div>
                             </div>
                         </a>
@@ -63,7 +63,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </li>
                 </ul>

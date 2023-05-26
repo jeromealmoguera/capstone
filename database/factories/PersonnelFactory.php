@@ -44,7 +44,6 @@ class PersonnelFactory extends Factory
             'station' => 'Apalit Municipal Police Station',
             'designation' => fake()->text(10),
             'status'=>fake()->randomElement(['Active', 'Inactive']),
-            'avatar' => asset('assets/default-avatar.png'),
             'user_id' =>rand(1, 20),
         ];
     }

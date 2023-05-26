@@ -40,7 +40,6 @@ return new class extends Migration
             $table->string('station');
             $table->string('designation');
             $table->enum('status', ['Active', 'Inactive']);
-            $table->string('avatar');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

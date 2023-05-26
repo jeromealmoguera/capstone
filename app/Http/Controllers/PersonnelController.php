@@ -15,10 +15,11 @@ class PersonnelController extends Controller
     //personnel lists
     public function index()
     {
+        $totalUsers = User::count();
         $personnelCount = Personnel::count();
         $personnels = Personnel::with('user')->get();
 
-        return view('admin.pages.personnel.personnel-list', compact('personnelCount','personnels'));
+        return view('admin.pages.personnel.personnel-list', compact('totalUsers','personnelCount','personnels'));
     }
 
     //personnel profile overview

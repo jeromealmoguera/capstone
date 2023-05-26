@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('personnel_id')->constrained()->onDelete('cascade');
             $table->string('file_name');
-            $table->string('document_type');
+            $table->enum('document_type', ['Personal Data Sheet', 'Diploma/TOR', 'Physical Fitness Test', 'Trainings', 'Specialized Trainings', 'SALN', 'KSS', 'PER', 'Reassignments', 'Eligibility']);
             $table->date('issued_date');
             $table->string('file_path');
             $table->timestamps();

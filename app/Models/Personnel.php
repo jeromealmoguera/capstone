@@ -36,7 +36,6 @@ class Personnel extends Model
         'station',
         'designation',
         'status',
-        'avatar',
         'user_id',
     ];
 

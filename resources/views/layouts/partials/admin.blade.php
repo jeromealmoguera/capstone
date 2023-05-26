@@ -30,8 +30,6 @@
         <!-- main @e -->
     </div>
     <!-- app-root @e -->
-    <!-- select region modal -->
-    <!-- .modal -->
     <!-- JavaScript -->
     <script src="{{ asset('assets/auth/js/bundle.js') }}"></script>
     <script src="{{ asset('assets/auth/js/scripts.js') }}"></script>

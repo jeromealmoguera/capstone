@@ -250,17 +250,17 @@
                                                                                         <input type="file" class="form-control" name="document_file">
                                                                                         <label class="form-label mt-2 mb-3">Document Type</label>
                                                                                         <select class="form-select js-select2" name="document_type">
-                                                                                            <option value="placeholder">--Select Document Type--</option>
-                                                                                            <option value="PDS">Personal Data Sheet</option>
-                                                                                            <option value="Diploma">Diploma/TOR</option>
-                                                                                            <option value="PFT">Physical Fitness Test</option>
+                                                                                            <option>-- Select Document Type --</option>
+                                                                                            <option value="Personal Data Sheet">Personal Data Sheet</option>
+                                                                                            <option value="Diploma/TOR">Diploma/TOR</option>
+                                                                                            <option value="Physical Fitness Test">Physical Fitness Test</option>
                                                                                             <option value="Trainings">Trainings</option>
-                                                                                            <option value="ST">Specialized Trainings</option>
-                                                                                            <option value="Reassignments">SALN</option>
-                                                                                            <option value="Eligibility">KSS</option>
-                                                                                            <option value="SALN">PER</option>
-                                                                                            <option value="KSS">Reassignments</option>
-                                                                                            <option value="PER">Eligibility</option>
+                                                                                            <option value="Specialized Trainings">Specialized Trainings</option>
+                                                                                            <option value="SALN">SALN</option>
+                                                                                            <option value="KSS">KSS</option>
+                                                                                            <option value="PER">PER</option>
+                                                                                            <option value="Reassignments">Reassignments</option>
+                                                                                            <option value="Eligibility">Eligibility</option>
                                                                                         </select>
 
                                                                                         <button type="submit" class="btn btn-primary mt-2">Upload</button>
