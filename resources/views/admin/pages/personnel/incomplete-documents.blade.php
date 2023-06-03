@@ -4,9 +4,9 @@
     <div class="nk-block nk-block-lg">
         <div class="nk-block-head">
             <div class="nk-block-head-content">
-                <h4 class="nk-block-title">Personnel Lists</h4>
+                <h4 class="nk-block-title">Personnel w/ Incomplete Documents</h4>
                 <div class="nk-block-des">
-                    <p>You have <strong class="text-danger">({{ $personnelCount }})</strong> in total.</p>
+                    <p>There are total <strong class="text-danger">({{ $incompletePersonnelCount }})</strong> personnel with incomplete documents.</p>
                 </div>
             </div>
             <div class="nk-block-head-content mt-2">
@@ -14,26 +14,6 @@
                     <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="pageMenu">
                         <em class="icon ni ni-menu-alt-r"></em>
                     </a>
-                    <div class="toggle-expand-content" data-content="pageMenu">
-                        <ul class="nk-block-tools g-3">
-                            <li>
-                                <div class="drodown">
-                                    <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <em class="d-none d-sm-inline icon ni ni-filter-alt"></em>
-                                        <span>Filtered By</span>
-                                        <em class="dd-indc icon ni ni-chevron-right"></em>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end" style="">
-                                        <ul class="link-list-opt no-bdr">
-                                            <li><a href="{{ route('personnel-list') }}"><span>All</span></a></li>
-                                            <li><a href="{{ route('personnel.active') }}"><span>Active</span></a></li>
-                                            <li><a href="{{ route('personnel.inactive') }}"><span>Inactive</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -53,15 +33,13 @@
                                 </div>
                             </th>
                             <th class="nk-tb-col"><span class="sub-text">Name</span></th>
-                            <th class="nk-tb-col tb-col-mb"><span class="sub-text">Rank</span></th>
-                            <th class="nk-tb-col tb-col-lg"><span class="sub-text">Station</span></th>
-                            <th class="nk-tb-col tb-col-md"><span class="sub-text">Status</span></th>
-                            <th class="nk-tb-col nk-tb-col-tools text-end">
-                            </th>
+                            <th class="nk-tb-col tb-col-mb"><span class="sub-text">Uploaded Document</span></th>
+                            <th class="nk-tb-col tb-col-lg"><span class="sub-text">Issued Date</span></th>
+                            <th class="nk-tb-col nk-tb-col-tools text-end">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($personnels as $personnel)
+                        @foreach ($incompletePersonnel as $personnel)
                         <tr class="nk-tb-item">
                             <td class="nk-tb-col nk-tb-col-check">
                                 <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -86,18 +64,14 @@
                                 </a>
                             </td>
                             <td class="nk-tb-col tb-col-mb" id="user-rank">
-                                <span>{{ $personnel->ranks }}</span></span>
+                                <span>{{ $personnel->documents_count }}</span>
+                                <span>out</span>
+                                <span>{{ count($requiredDocumentTypes) }}</span>
                             </td>
                             <td class="nk-tb-col tb-col-lg">
-                                <span>{{ $personnel->station }}</span>
+                                <span>{{ $previousYear }}</span>
                             </td>
-                            <td class="nk-tb-col tb-col-md">
-                                @if($personnel->status === 'Active')
-                                <span class="text-success">{{ ($personnel->status) }}</span>
-                                @elseif($personnel->status === 'Inactive')
-                                <span class="text-danger">{{ ($personnel->status) }}</span>
-                                @endif
-                            </td>
+
                             <td class="nk-tb-col nk-tb-col-tools">
                                 <ul class="nk-tb-actions gx-1">
                                     <li class="nk-tb-action-hidden">
@@ -114,69 +88,41 @@
                                         </a>
                                     </li>
                                     <li class="nk-tb-action-hidden">
-                                        <a href="{{ route('view.personnel.documents', ['id' => $personnel->id]) }}" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" title="Documents">
-                                            <em class="icon ni ni-folder-list"></em>
+                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Archive">
+                                            <em class="icon ni ni-archived-fill"></em>
                                         </a>
                                     </li>
                                     <li>
                                         <div class="drodown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown">
-                                                <em class="icon ni ni-more-h"></em>
-                                            </a>
+                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger"
+                                                data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                             <div class="dropdown-menu dropdown-menu-end">
                                                 <ul class="link-list-opt no-bdr">
-                                                    @if($personnel->status === 'Active')
-                                                    <li>
-                                                        <a href="{{ route('change.personnel.status', ['id' => $personnel->id, 'status' => 'Inactive']) }}">
-                                                            <em class="icon ni ni-cross-circle-fill"></em>
-                                                            <span>Change to Inactive</span>
-                                                        </a>
+                                                    <li><a
+                                                            href="{{ route('view.personnel.profile',['id' => $personnel->id]) }}"><em
+                                                                class="icon ni ni-eye"></em><span>Overview</span></a>
                                                     </li>
-                                                    @elseif($personnel->status === 'Inactive')
-                                                    <li>
-                                                        <a href="{{ route('change.personnel.status', ['id' => $personnel->id, 'status' => 'Active']) }}">
-                                                            <em class="icon ni ni-check-circle-fill"></em>
-                                                            <span>Change to Active</span>
-                                                        </a>
-                                                    </li>
-                                                    @endif
-                                                    <li>
-                                                        <a href="{{ route('view.personnel.profile',['id' => $personnel->id]) }}">
-                                                            <em class="icon ni ni-eye"></em>
-                                                            <span>Overview</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('edit.personnel', $personnel->id) }}">
-                                                            <em class="icon ni ni-edit"></em>
-                                                            <span>Update Details</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <em class="icon ni ni-account-setting-alt"></em>
-                                                            <span>Account Settings</span>
-                                                        </a>
-                                                    </li>
+                                                    <li><a href="{{ route('edit.personnel', $personnel->id) }}"><em
+                                                                class="icon ni ni-edit"></em><span>Update
+                                                                Details</span></a></li>
+                                                    <li><a href="#"><em
+                                                                class="icon ni ni-account-setting-alt"></em><span>Account
+                                                                Settings</span></a></li>
                                                     <li class="divider"></li>
-                                                    <li>
-                                                        <a href="{{ route('view.personnel.documents', ['id' => $personnel->id]) }}">
-                                                            <em class="icon ni ni-folder-list"></em>
-                                                            <span>Documents</span>
-                                                        </a>
+                                                    <li><a
+                                                            href="{{ route('view.personnel.documents', ['id' => $personnel->id]) }}"><em
+                                                                class="icon ni ni-folder-list"></em><span>Documents</span></a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('send.sms', ['mobile_no' => $personnel->mobile_no]) }}">
-                                                            <em class="icon ni ni-comments"></em>
-                                                            <span>Send SMS</span>
-                                                        </a>
+                                                        <a href="{{ route('send.sms', ['mobile_no' => $personnel->mobile_no]) }}"
+                                                            class="dropdown-toggle"><em class="icon ni ni-comments"></em>
+                                                            <span>Send SMS</span></a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
                             </td>
                         </tr><!-- .nk-tb-item  -->
@@ -187,7 +133,6 @@
         </div><!-- .card-preview -->
     </div> <!-- nk-block -->
 </div>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -266,6 +211,4 @@
         }
     });
 </script>
-
-
 @endsection

@@ -2,9 +2,9 @@
     <div class="nk-block nk-block-lg">
         <div class="nk-block-head d-flex">
             <div class="nk-block-head-content">
-                <h4 class="nk-block-title">Voluntary Works</h4>
+                <h4 class="nk-block-title">Trainings</h4>
                 <div class="nk-block-des">
-                    <p>You can add or edit a voluntary works.</p>
+                    <p>You can add or edit trainings.</p>
                 </div>
             </div>
             <div class="nk-block-head-content ms-auto">
@@ -20,7 +20,7 @@
                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
                         <tr class="nk-tb-item nk-tb-head">
-                            <th class="nk-tb-col tb-col-sm"><span class="sub-text">#</span></th>
+
                             <th class="nk-tb-col tb-col"><span class="sub-text">Title</span></th>
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">Start Date</span></th>
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">End Date</span></th>
@@ -34,9 +34,7 @@
                     <tbody>
                         @foreach ($personnel->trainings as $training)
                         <tr class="nk-tb-item">
-                            <td class="nk-tb-col tb-col-sm">
-                                <span>{{ $training->id }}</span>
-                            </td>
+
                             <td class="nk-tb-col tb-col">
                                 <span>{{ $training->title }}</span>
                             </td>
@@ -160,7 +158,7 @@
                 <h5 class="modal-title text-white">Add Trainings</h5>
             </div>
             <div class="modal-body">
-                <<form action="{{ route('add.training', $personnel->id) }}" method="POST">
+                <form action="{{ route('add.training', $personnel->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label class="form-label" for="title">Title</label>

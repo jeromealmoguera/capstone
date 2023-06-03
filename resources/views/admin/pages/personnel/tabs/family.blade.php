@@ -20,7 +20,7 @@
                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
                         <tr class="nk-tb-item nk-tb-head">
-                            <th class="nk-tb-col tb-col-md"><span class="sub-text">#</span></th>
+
                             <th class="nk-tb-col"><span class="sub-text">Name</span></th>
                             <th class="nk-tb-col tb-col-mb"><span class="sub-text">Relationship</span></th>
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">Occupation</span></th>
@@ -33,9 +33,7 @@
                     <tbody>
                         @foreach ($personnel->familyBackgrounds as $background)
                         <tr class="nk-tb-item">
-                            <td class="nk-tb-col tb-col-md">
-                                <span>{{ $background->id }}</span>
-                            </td>
+                           
                             <td class="nk-tb-col">
                                 <span>{{ $background->name }}</span>
                             </td>

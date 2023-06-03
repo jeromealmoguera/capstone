@@ -20,7 +20,7 @@
                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
                         <tr class="nk-tb-item nk-tb-head">
-                            <th class="nk-tb-col tb-col-sm"><span class="sub-text">#</span></th>
+
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">Start Date</span></th>
                             <th class="nk-tb-col tb-col-mb"><span class="sub-text">End Date</span></th>
                             <th class="nk-tb-col tb-col"><span class="sub-text">Position</span></th>
@@ -36,9 +36,7 @@
                     <tbody>
                         @foreach ($personnel->workExperiences as $experience)
                         <tr class="nk-tb-item">
-                            <td class="nk-tb-col tb-col-sm">
-                                <span>{{ $experience->id }}</span>
-                            </td>
+                           
                             <td class="nk-tb-col tb-col-md">
                                 <span>{{ \Carbon\Carbon::parse($experience->start_date)->format('F j, Y') }}</span>
                             </td>

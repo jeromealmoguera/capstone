@@ -121,11 +121,12 @@ class PersonnelProfileController extends Controller
 
 
     //View Profile
-     public function showProfile(Personnel $personnel)
-     {
+    public function showProfile(Personnel $personnel)
+    {
 
-         return view('admin.pages.personnel.personnel-profile' , compact('personnel'));
-     }
+    return view('admin.pages.personnel.personnel-profile' , compact('personnel'));
+
+    }
 
 
    public function createFamilyMember(Request $request, Personnel $personnel)

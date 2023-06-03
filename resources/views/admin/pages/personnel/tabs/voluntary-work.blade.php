@@ -20,7 +20,7 @@
                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
                         <tr class="nk-tb-item nk-tb-head">
-                            <th class="nk-tb-col tb-col-sm"><span class="sub-text">#</span></th>
+
                             <th class="nk-tb-col tb-col"><span class="sub-text">Organization</span></th>
                             <th class="nk-tb-col tb-col-mb"><span class="sub-text">Address</span></th>
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">Start Date</span></th>
@@ -34,9 +34,7 @@
                     <tbody>
                         @foreach ($personnel->voluntaryWorks as $work)
                         <tr class="nk-tb-item">
-                            <td class="nk-tb-col tb-col-sm">
-                                <span>{{ $work->id }}</span>
-                            </td>
+                            
                             <td class="nk-tb-col tb-col">
                                 <span>{{ $work->org_name }}</span>
                             </td>

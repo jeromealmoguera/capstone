@@ -65,7 +65,7 @@
                                                         </div>
                                                         <div class="card-inner card-inner-sm">
                                                             <ul class="btn-toolbar justify-center gx-1">
-                                                                <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-mail"></em></a></li>
+                                                                <li><a href="{{ route('send.sms', ['mobile_no' => $personnel->mobile_no]) }}" class="btn btn-trigger btn-icon"><em class="icon ni ni-mail"></em></a></li>
                                                                 <li><a href="#" class="btn btn-trigger btn-icon text-danger"><em class="icon ni ni-na"></em></a></li>
                                                             </ul>
                                                         </div>

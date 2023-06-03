@@ -20,7 +20,7 @@
                                 <div class="drodown">
                                     <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-bs-toggle="dropdown" aria-expanded="false">
                                         <em class="d-none d-sm-inline icon ni ni-filter-alt"></em>
-                                        <span>Filtered By</span>
+                                        <span>Inactive</span>
                                         <em class="dd-indc icon ni ni-chevron-right"></em>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" style="">
@@ -41,7 +41,7 @@
             <div class="card-inner">
                 <!-- Add a container for the buttons above the table -->
                 <div id="tableButtons" class="mb-3" style="display: none;">
-                    <button id="messageAllButton" class="btn btn-primary">Message All</button>
+                    <button id="deleteAllButton" class="btn btn-danger">Delete All</button>
                 </div>
                 <table id="personnelTable" class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
@@ -79,7 +79,7 @@
                                         <div class="user-info">
                                             <span class="tb-lead">{{ $personnel->first_name }}
                                                 {{ $personnel->last_name }}<span
-                                                    class=" ms-1"></span></span>
+                                                    class="dot dot-success d-md-none ms-1"></span></span>
                                             {{-- <span>info@softnio.com</span> --}}
                                         </div>
                                     </div>
@@ -176,7 +176,6 @@
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
                             </td>
                         </tr><!-- .nk-tb-item  -->

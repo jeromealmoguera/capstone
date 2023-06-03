@@ -20,7 +20,7 @@
                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                     <thead>
                         <tr class="nk-tb-item nk-tb-head">
-                            <th class="nk-tb-col tb-col-sm"><span class="sub-text">#</span></th>
+
                             <th class="nk-tb-col tb-col"><span class="sub-text">Acad Level</span></th>
                             <th class="nk-tb-col tb-col-mb"><span class="sub-text">School Name</span></th>
                             <th class="nk-tb-col tb-col-md"><span class="sub-text">Course</span></th>
@@ -35,9 +35,7 @@
                     <tbody>
                         @foreach ($personnel->educationBackgrounds as $education)
                         <tr class="nk-tb-item">
-                            <td class="nk-tb-col tb-col-sm">
-                                <span>{{ $education->id }}</span>
-                            </td>
+                            
                             <td class="nk-tb-col tb-col">
                                 <span>{{ $education->acad_level }}</span>
                             </td>
@@ -73,7 +71,7 @@
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <form method="post" action="{{ route('delete.education', $education->id) }}">
+                                                    <form method="post" action="{{ route('delete.education', $education->id) }}" onsubmit="return confirm('Are you sure you want to delete this family member?')">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn d-flex align-items-center">

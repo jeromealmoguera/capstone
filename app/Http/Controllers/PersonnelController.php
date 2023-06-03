@@ -22,6 +22,25 @@ class PersonnelController extends Controller
         return view('admin.pages.personnel.personnel-list', compact('totalUsers','personnelCount','personnels'));
     }
 
+    public function getActive()
+    {
+        $totalUsers = User::count();
+        $personnelCount = Personnel::where('status', 'Active')->count();
+        $personnels = Personnel::with('user')->where('status', 'Active')->get();
+
+        return view('admin.pages.personnel.status.active', compact('totalUsers', 'personnelCount', 'personnels'));
+    }
+
+    public function getInactive()
+    {
+        $totalUsers = User::count();
+        $personnelCount = Personnel::where('status', 'Inactive')->count();
+        $personnels = Personnel::with('user')->where('status', 'Inactive')->get();
+
+        return view('admin.pages.personnel.status.inactive', compact('totalUsers', 'personnelCount', 'personnels'));
+    }
+
+
     //personnel profile overview
     public function view($id)
     {
@@ -102,13 +121,17 @@ class PersonnelController extends Controller
         return redirect()->back()->with('success', 'Document deleted successfully.');
     }
 
-    public function deleteMultiple(Request $request)
+    public function changeStatus($id, $status)
     {
-        $documentIds = $request->input('document_id');
+        // Retrieve the personnel record
+        $personnel = Personnel::findOrFail($id);
 
-        // Perform the deletion logic for the selected documents
+        // Update the status
+        $personnel->status = $status;
+        $personnel->save();
 
-        return redirect()->back()->with('success', 'Selected documents deleted successfully.');
+        // Redirect back to the personnel list or any other desired page
+        return redirect()->route('personnel-list')->with('success', 'Personnel status changed successfully.');
     }
 
     public function viewDocuments($id)

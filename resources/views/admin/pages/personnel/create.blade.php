@@ -138,9 +138,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="height">Height (ft)</label>
+                                                <label class="form-label" for="height">Height (cm)</label>
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="height" name="height" placeholder="Height">
+                                                    <input type="number" class="form-control" id="height" name="height" placeholder="Height">
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +164,7 @@
                                             <div class="form-group">
                                                 <label class="form-label" for="mobile_no">Mobile No.</label>
                                                 <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile No." required>
+                                                    <input type="number" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile No." required>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,18 +264,12 @@
                                                 <div class="form-control-wrap">
                                                     <select class="form-select js-select2" id="ranks" name="ranks" data-placeholder="rank" required>
                                                         <option >Select Rank</option>
-                                                        <option>Patrolman
-                                                        </option>
-                                                        <option>Patrolwoman
-                                                        </option>
-                                                        <option >
-                                                            Police Corporal</option>
-                                                        <option>
-                                                            Police Staff Sergeant</option>
-                                                        <option>
-                                                            Police Master Sergeant</option>
-                                                        <option >
-                                                            Police Senior Master Sergeant</option>
+                                                        <option>Patrolman</option>
+                                                        <option>Patrolwoman</option>
+                                                        <option >Police Corporal</option>
+                                                        <option>Police Staff Sergeant</option>
+                                                        <option>Police Master Sergeant</option>
+                                                        <option >Police Senior Master Sergeant</option>
                                                         <option>
                                                             Police Chief Master Sergeant</option>
                                                         <option>

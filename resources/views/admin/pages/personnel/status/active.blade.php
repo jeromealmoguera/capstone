@@ -20,7 +20,7 @@
                                 <div class="drodown">
                                     <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-bs-toggle="dropdown" aria-expanded="false">
                                         <em class="d-none d-sm-inline icon ni ni-filter-alt"></em>
-                                        <span>Filtered By</span>
+                                        <span>Active</span>
                                         <em class="dd-indc icon ni ni-chevron-right"></em>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" style="">
@@ -79,7 +79,7 @@
                                         <div class="user-info">
                                             <span class="tb-lead">{{ $personnel->first_name }}
                                                 {{ $personnel->last_name }}<span
-                                                    class=" ms-1"></span></span>
+                                                    class="dot dot-success d-md-none ms-1"></span></span>
                                             {{-- <span>info@softnio.com</span> --}}
                                         </div>
                                     </div>
@@ -176,7 +176,6 @@
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
                             </td>
                         </tr><!-- .nk-tb-item  -->

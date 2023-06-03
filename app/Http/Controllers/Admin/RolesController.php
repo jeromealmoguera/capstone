@@ -11,7 +11,7 @@ class RolesController extends Controller
 {
     public function index()
     {
-        $roles = Role::whereNotIn('name', ['admin'])->get();
+        $roles = Role::get();
         $permissions = Permission::all();
 
         return view('admin.pages.roles.index', compact('roles', 'permissions'));

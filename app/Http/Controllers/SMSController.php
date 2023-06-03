@@ -24,8 +24,9 @@ class SMSController extends Controller
         curl_close($ch);
 
         // Show the server response
-        echo $output;
+        // echo $output;
 
-        return view('admin.pages.personnel.send-sms');
+        return view('admin.pages.personnel.send-sms')
+        ->with('Success', 'You have successfully sent an sms.');
     }
 }

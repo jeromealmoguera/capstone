@@ -189,7 +189,7 @@
                                             <span class="user-avatar xs m-1 fw-light text-white">{{ $totalDocuments }}</span>
                                         </div>
                                     </div>
-                                        <a class="fw-medium" href="#">View</a>
+                                        <a class="fw-medium" href="{{ route('view.documents-lists') }}">View</a>
                                 </div><!-- .preview-icon-box -->
                             </li><!-- .col -->
                             <li class="col-lg-3 col-sm-6 col-12">
@@ -243,7 +243,7 @@
                                             <span class="user-avatar xs m-1 fw-light text-white">{{ $incompletePersonnelCount }}</span>
                                         </div>
                                     </div>
-                                    <a class="fw-medium" href="html/cms/comments.html">View</a>
+                                    <a class="fw-medium" href="{{ route('personnel.incomplete') }}">View</a>
                                 </div><!-- .preview-icon-box -->
                             </li><!-- .col -->
                         </ul><!-- .row -->
@@ -254,7 +254,7 @@
                                 <div class="card-title d-flex">
                                    <div>
                                         <h6 class="title">Incomplete Required Document</h6>
-                                        <p>These are the list of personnel with incomplete uploaded documents.</p>
+                                        <p>These are the list of personnel with incomplete uploaded documents. <a href="{{ route('personnel.incomplete') }}">View All</a></p>
                                    </div>
                                 </div>
 
@@ -266,14 +266,14 @@
                                             </th>
                                             <th>Uploaded Documents</th>
                                             <th>Issued Year</th>
-                                            <th class="tb-odr-action">Action</th>
+                                            {{-- <th class="tb-odr-action">Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody class="tb-odr-body">
                                         @foreach($displayedPersonnel as $person)
                                             <tr class="tb-odr-item">
                                                 <td class="tb-odr-info">
-                                                    <span class="tb-odr-id"><a href="#">{{ $person->first_name }}</a></span>
+                                                    <span class="tb-odr-id">{{ $person->first_name }}</span>
                                                 </td>
                                                 <td class="text-center">
                                                     <span>{{ $person->documents_count }}</span>
@@ -281,14 +281,14 @@
                                                     <span>{{ count($requiredDocumentTypes) }}</span>
                                                 </td>
                                                 <td>{{ $previousYear }}</td>
-                                                <td class="tb-odr-action">
+                                                {{-- <td class="tb-odr-action">
                                                     <div class="tb-odr-btns d-none d-md-inline">
                                                         <a href="#" class="btn btn-sm btn-primary">View</a>
                                                     </div>
                                                     <div class="dropdown">
                                                         <a class="text-soft btn btn-icon btn-trigger"></a>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -303,8 +303,9 @@
                                 <div class="card-title-group mb-3">
                                     <div class="card-title">
                                         <h6 class="title">Uploaded Document Per Document Type</h6>
+                                        <span class="fs-11px">These are the uploaded documents for documents issued in <em class="text-primary">{{ $previousYear }}</em></span>
                                     </div>
-                                    <div class="card-tools mt-n4 me-n1">
+                                    {{-- <div class="card-tools mt-n4 me-n1">
                                         <div class="drodown"><a href="#"
                                                 class="dropdown-toggle btn btn-icon btn-trigger"
                                                 data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
@@ -316,104 +317,104 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="progress-list gy-3">
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Personal Data Sheet</div>
-                                            <div class="progress-amount">58%</div>
+                                            <div class="progress-amount">{{ $personalDataSheetCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar" data-progress="58" style="width: 58%;"></div>
+                                            <div class="progress-bar" data-progress="{{ $personalDataSheetCounts }}" style="width: {{ $personalDataSheetCounts }}%;"></div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Diploma/TOR</div>
-                                            <div class="progress-amount">18.49%</div>
+                                            <div class="progress-amount">{{ $diplomaCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-orange" data-progress="18.49"
-                                                style="width: 18.49%;"></div>
+                                            <div class="progress-bar bg-orange" data-progress="{{ $diplomaCounts }}"
+                                                style="width: {{ $diplomaCounts }}%;"></div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Trainings</div>
-                                            <div class="progress-amount">16%</div>
+                                            <div class="progress-amount">{{ $trainingCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-teal" data-progress="16" style="width: 16%;">
+                                            <div class="progress-bar bg-teal" data-progress="{{ $trainingCounts }}" style="width: {{ $trainingCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Specialized Trainings</div>
-                                            <div class="progress-amount">29%</div>
+                                            <div class="progress-amount">{{ $specialTrainingCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-pink" data-progress="29" style="width: 29%;">
+                                            <div class="progress-bar bg-pink" data-progress="{{ $specialTrainingCounts }}" style="width: {{ $specialTrainingCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Reassignments</div>
-                                            <div class="progress-amount">33%</div>
+                                            <div class="progress-amount">{{ $reassignmentCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-azure" data-progress="33" style="width: 33%;">
+                                            <div class="progress-bar bg-azure" data-progress="{{ $reassignmentCounts }}" style="width: {{ $reassignmentCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">SALN</div>
-                                            <div class="progress-amount">58%</div>
+                                            <div class="progress-amount">{{ $salNCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar" data-progress="58" style="width: 58%;"></div>
+                                            <div class="progress-bar" data-progress="{{ $salNCounts }}" style="width: {{ $salNCounts }}%;"></div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">PER</div>
-                                            <div class="progress-amount">18.49%</div>
+                                            <div class="progress-amount">{{ $perCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-orange" data-progress="18.49"
-                                                style="width: 18.49%;"></div>
+                                            <div class="progress-bar bg-orange" data-progress="{{ $perCounts }}"
+                                                style="width: {{ $perCounts }}%;"></div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Physical Fitness Test</div>
-                                            <div class="progress-amount">16%</div>
+                                            <div class="progress-amount">{{ $pftCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-teal" data-progress="16" style="width: 16%;">
+                                            <div class="progress-bar bg-teal" data-progress="{{ $pftCounts }}" style="width: {{ $pftCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">KSS</div>
-                                            <div class="progress-amount">29%</div>
+                                            <div class="progress-amount">{{ $kssCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-pink" data-progress="29" style="width: 29%;">
+                                            <div class="progress-bar bg-pink" data-progress="{{ $kssCounts }}" style="width: {{ $kssCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="progress-wrap">
                                         <div class="progress-text">
                                             <div class="progress-label">Eligibility</div>
-                                            <div class="progress-amount">33%</div>
+                                            <div class="progress-amount">{{ $eligibilityCounts }}%</div>
                                         </div>
                                         <div class="progress progress-md">
-                                            <div class="progress-bar bg-azure" data-progress="33" style="width: 33%;">
+                                            <div class="progress-bar bg-azure" data-progress="{{ $eligibilityCounts }}" style="width: {{ $eligibilityCounts }}%;">
                                             </div>
                                         </div>
                                     </div>
@@ -428,7 +429,7 @@
                                         </div>
                                     </div><canvas class="iv-plan-purchase chartjs-render-monitor" id="planPurchase"
                                         style="display: block; width: 311px; height: 50px;" width="622"
-                                        height="100"></canvas>
+                                        height="90"></canvas>
                                 </div>
                             </div>
 
